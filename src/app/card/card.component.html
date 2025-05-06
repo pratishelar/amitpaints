@@ -1,0 +1,11 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col" *ngFor="let painting of paintings">
+    <div class="card">
+      <img src='{{"https://strapi-production-d557.up.railway.app" + painting.Image[0].url}}' class="card-img-top" alt='{{ painting.Name }}'>
+      <div class="card-body">
+        <h5 class="card-title">{{ painting.Name }}</h5>
+        <p class="card-text">{{painting.Description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
