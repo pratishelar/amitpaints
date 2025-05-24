@@ -1,0 +1,13 @@
+<div *ngIf="painting" class="container py-5">
+  <div class="row g-5 align-items-center">
+    <div class="col-md-6">
+      <img [src]="'https://strapi-production-d557.up.railway.app' + painting.Image[0]?.url"
+        class="img-fluid rounded shadow-sm" [alt]="painting.name">
+    </div>
+    <div class="col-md-6">
+      <h2 class="fw-bold mb-3">{{ painting.Name }}</h2>
+      <p class="text-muted fs-5">{{ painting.Description }}</p>
+      <h4 class="text-primary fw-semibold">${{ painting.Price }}</h4>
+    </div>
+  </div>
+</div>

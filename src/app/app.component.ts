@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PaintingService } from './services/painting.service';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from "./card/card.component";
-import { CarouselComponent } from "./Carousel/Carousel.component";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { FooterComponent } from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, CardComponent, CarouselComponent, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
