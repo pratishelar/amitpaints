@@ -1,13 +1,45 @@
-<div *ngIf="painting" class="container py-5">
-  <div class="row g-5 align-items-center">
-    <div class="col-md-6">
-      <img [src]="'https://strapi-production-d557.up.railway.app' + painting.Image[0]?.url"
-        class="img-fluid rounded shadow-sm" [alt]="painting.name">
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-lg-5 mt-5">
+      <div class="container">
+        <!-- Main Image -->
+        <div class="mb-3 text-center">
+          <img [src]="selectedImage" class="img-fluid rounded shadow-sm border"
+            style="max-height: 400px; object-fit: contain;" alt="Main image">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="d-flex justify-content-center flex-wrap gap-2">
+          <img *ngFor="let img of imageUrls" [src]="img" (click)="selectImage(img)" class="img-thumbnail"
+            [class.border-primary]="img === selectedImage"
+            style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2 class="fw-bold mb-3">{{ painting.Name }}</h2>
-      <p class="text-muted fs-5">{{ painting.Description }}</p>
-      <h4 class="text-primary fw-semibold">${{ painting.Price }}</h4>
+
+    <!-- col end -->
+    <div class="col-lg-7 mt-5">
+      <div class="card rounded">
+        <div class="card-body">
+          <h1 class="h2">{{painting?.Name}}</h1>
+          <p class="h3 py-2">$ {{painting?.Price}}</p>
+          <hr>
+          <h4 class="my-2">Description: </h4>
+          <p>{{painting?.Description}}</p>
+
+          <h4 class="my-2">Specification:</h4>
+          <ul class="list-unstyled pb-3">
+            <li>Lorem ipsum dolor sit</li>
+            <li>Amet, consectetur</li>
+            <li>Adipiscing elit,set</li>
+          </ul>
+
+          <div class="d-flex gap-2">
+            <a href="https://wa.me/12262207323" target="_blank" class="btn btn-success">Buy on Whatsapp</a>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
